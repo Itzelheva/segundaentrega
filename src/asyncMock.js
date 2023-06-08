@@ -112,7 +112,7 @@ const products = [
 
   {
     id: "12",
-    nombreDelProducto: "Leaps & Bounds Varita Flexible",
+    name: "Leaps & Bounds Varita Flexible",
     category: "Juguetes",
     precio: 189.00,
     img: "https://www.petco.com.mx/medias/?context=bWFzdGVyfGltYWdlc3wxMzYwNjd8aW1hZ2UvanBlZ3xpbWFnZXMvaDkwL2g0MC85MzIzMzk3MTIwMDMwLmpwZ3wwMmU1ZWEwZTUxOGRhYmUxY2NhYTEwMTZhOTAyMTJlNWE2N2YzODlhZWZkYTlhYjU3ZjAxZDU2YzkwMzU0Zjhk",
@@ -122,7 +122,7 @@ const products = [
 
   {
     id: "13",
-    nombreDelProducto: "You & Me Poste Rascador",
+    name: "You & Me Poste Rascador",
     category: "Juguetes",
     price: 674.25,
     img: "https://www.petco.com.mx/medias/?context=bWFzdGVyfGltYWdlc3wyMDg2Nzl8aW1hZ2UvanBlZ3xpbWFnZXMvaDNmL2hiOS85MTU5ODM2MDQxMjQ2LmpwZ3wwNzhiMjMzM2Y0MWM2Y2U4YTgzMjhjM2M0YzIxYzMyYzJlMDgxMGI3MTI1OWM1M2QxYTBmZmM3YTJmOWEwYzhm",
@@ -251,7 +251,7 @@ export const getProductById = (productId) => {
 export const getProductsByCategory = (categoryId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(products.filter(cat => cat.id === categoryId))
+      resolve(products.filter(cat => cat.category === categoryId))
     })
   })
 }
