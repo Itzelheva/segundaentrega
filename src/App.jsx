@@ -20,7 +20,7 @@ function App() {
     
     <Routes>
       <Route path="/" element={<HomePage />} /> 
-      <Route path="/category/:category" element={<CategoryPage />} />
+      <Route path="/category/:categoryId" element={<CategoryPage />} />
       <Route path="/item/:itemId" element={<ItemPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
