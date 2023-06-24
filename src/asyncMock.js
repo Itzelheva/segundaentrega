@@ -67,7 +67,7 @@ const products = [
     price: 485,
     img: "https://assets.petco.com/petco/image/upload/f_auto,q_auto/2297805-center-1",
     stock: 30,
-    descripcion: "Sophresh Advanced Odor Control Arena de Arcilla Aglutinante sin Esencia para Gato, 13.6 kg"
+    description: "Sophresh Advanced Odor Control Arena de Arcilla Aglutinante sin Esencia para Gato, 13.6 kg"
   },
 
   {
@@ -103,7 +103,7 @@ const products = [
   {
     id: "11",
     name: "Nylabone Huesos Flexibles",
-    categoria: "Juguetes",
+    category: "Juguetes",
     price: 299.00,
     img: "https://www.petco.com.mx/medias/?context=bWFzdGVyfGltYWdlc3w0NDA4NjN8aW1hZ2UvanBlZ3xpbWFnZXMvaDA1L2gyNy85NDk2NTE2Njg5OTUwLmpwZ3wzYzI3NmRhM2Y1MTE0OTk0MDRiYjNkZmEyYWYxOGE3YmI4ODAyN2RiZGYyMDc3ZWFmYTZiYTBmNzFmNWYxODk4",
     stock: 22,
@@ -114,7 +114,7 @@ const products = [
     id: "12",
     name: "Leaps & Bounds Varita Flexible",
     category: "Juguetes",
-    precio: 189.00,
+    price: 189.00,
     img: "https://www.petco.com.mx/medias/?context=bWFzdGVyfGltYWdlc3wxMzYwNjd8aW1hZ2UvanBlZ3xpbWFnZXMvaDkwL2g0MC85MzIzMzk3MTIwMDMwLmpwZ3wwMmU1ZWEwZTUxOGRhYmUxY2NhYTEwMTZhOTAyMTJlNWE2N2YzODlhZWZkYTlhYjU3ZjAxZDU2YzkwMzU0Zjhk",
     stock: 11,
     description: "Leaps & Bounds Thrill and Chase Varita Flexible con Pluma para Gato, Naranja"
@@ -174,7 +174,7 @@ const products = [
     id: "18",
     name: "Harmony Tazón Ovalado",
     category: "Tazones",
-    precio: 90.30,
+    price: 90.30,
     img: "https://www.petco.com.mx/medias/?context=bWFzdGVyfGltYWdlc3wxMTczNjR8aW1hZ2UvanBlZ3xpbWFnZXMvaGM3L2gyMS85MTk1Mjg2OTg2NzgyLmpwZ3wyNjRhNDRiZWViNTJkODc4MWY3N2YwODViNGQzYjJkOTRiZDIxYjQ1OWMxMTQ3MjQyNmE5YTk5OWUzYWMzZjUw",
     stock: 7,
     description: "Harmony Tazón Ovalado Orilla Delgada de Acero Inoxidable para Gato"
@@ -184,7 +184,7 @@ const products = [
     id: "19",
     name: "EveryYay Snooze Fest Nester",
     category: "Camas",
-    precio: 649.00,
+    price: 649.00,
     img: "https://assets.petco.com/petco/image/upload/c_pad,dpr_1.0,f_auto,q_auto,h_636,w_636/c_pad,h_636,w_636/l_bypetco-badge,fl_relative,w_0.20,g_south_east,e_sharpen/3283499-center-11",
     stock: 1,
     description: "EveryYay Snooze Fest Nester Cama con Forma de Nido Color Gris para Perro, Chico"
@@ -233,25 +233,26 @@ const products = [
 ]
 
 export const getProducts = () => {
- return new Promise((resolve) => {
-   setTimeout(() => {
-     resolve(products)
-   },);
- })
-}
-
-export const getProductById = (productId) => {
- return new Promise((resolve) => {
-   setTimeout(() => {
-     resolve(products.find(prod => prod.id === productId))
-   })
- })
-}
-
-export const getProductsByCategory = (categoryId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(products.filter(cat => cat.category === categoryId))
-    })
-  })
-}
+      resolve(products);
+    },);
+  });
+};
+
+export const getProductById = (productId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((prod) => prod.id === productId));
+    },);
+  });
+};
+
+export const getProductByCategory = (categoryId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.filter((prod) => prod.category === categoryId))
+    });
+  });
+};
+

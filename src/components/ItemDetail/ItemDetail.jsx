@@ -1,37 +1,42 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-import {  CardActionArea, CardActions } from '@mui/material';
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({id,name,category,price,img,stock,description}) => {
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
+
+const ItemDetail = ({id, name, img, price, stock, category, description }) => {
   return (
-    <Card sx={{ maxWidth: 500 }}>
+    <Card sx={{ maxWidth: 600 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="500"
           image={img}
-          alt={name}
+          alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {name}
+          {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {category}
+          Categoria: {category}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Precio: ${price}
+          Descripcion: {description}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {description}
+          Precio: ${price}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Stock disponible: ${stock}
+          Stock disponible: ${stock}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <ItemCount emptyCart={0} stock={20} addToCart={(cantidad) => console.log("Agregado al carrito", cantidad)} />
+        <ItemCount emptyCart={0} stock={5} addToCart={(cantidad) => console.log("Productos agregados" , cantidad)}/>
       </CardActions>
     </Card>
   );
