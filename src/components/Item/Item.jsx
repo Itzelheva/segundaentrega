@@ -1,17 +1,17 @@
-
+import item from "./item.css";
 import { Link } from "react-router-dom";
-
 
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
 
-const Item = ({id, name, img, price, stock }) => {
+const Item = ({id, name, img, price }) => {
   return (
-    <Card sx={{ maxWidth: 600 }}>
+    <div className="item-container">
+    <Card sx={{ maxWidth: 400 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -23,7 +23,7 @@ const Item = ({id, name, img, price, stock }) => {
           <Typography gutterBottom variant="h5" component="div">
           {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="h6" color="inherit">
           Precio: ${price}
           </Typography>
         </CardContent>
@@ -34,6 +34,7 @@ const Item = ({id, name, img, price, stock }) => {
         </Link>
       </CardActions>
     </Card>
+    </div>
   );
 }
 

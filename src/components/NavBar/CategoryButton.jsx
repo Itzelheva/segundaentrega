@@ -1,6 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
 
-
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -19,13 +18,15 @@ import Fade from '@mui/material/Fade';
   };
 
   return (
-    <div>
+    <div className="category-button">
       <Button
         id="fade-button"
         aria-controls={open ? 'fade-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+    
+        
       >
         Categorías
       </Button>

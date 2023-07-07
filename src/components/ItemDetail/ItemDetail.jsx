@@ -1,15 +1,34 @@
-import ItemCount from "../ItemCount/ItemCount";
 
-import * as React from 'react';
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
+import itemdetail from "./itemdetail.css";
+import ItemCount from "../ItemCount/ItemCount"
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
+
 
 const ItemDetail = ({id, name, img, price, stock, category, description }) => {
+  
+  const { addItem } = useContext(CartContext)
+  const [showCheckOutButton, setCheckOutButton] = useState(false)
+
+  const handleOnAdd = (quantity) => {
+    const item = {
+      id,name,price
+    }
+
+    addItem(item,quantity)
+    setCheckOutButton(true)
+  }
+ 
   return (
-    <Card sx={{ maxWidth: 600 }}>
+    <div className="item-detail-container">
+    <Card sx={{ maxWidth: 300 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -21,24 +40,31 @@ const ItemDetail = ({id, name, img, price, stock, category, description }) => {
           <Typography gutterBottom variant="h5" component="div">
           {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="h6" color="text.secondary">
           Categoria: {category}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="subtitle1" color="text.secondary">
           Descripcion: {description}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="h6" color="text.secondary">
           Precio: ${price}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          Stock disponible: ${stock}
+          Stock disponible: {stock}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <ItemCount emptyCart={0} stock={5} addToCart={(cantidad) => console.log("Productos agregados" , cantidad)}/>
+        {showCheckOutButton ? (
+         <Link to="/cart">
+          <button>Terminar compra</button>
+         </Link> 
+        ) : (
+          <ItemCount initial={0} stock={stock} onAdd={handleOnAdd} />
+        )}
       </CardActions>
     </Card>
+    </div>
   );
 }
 

@@ -1,0 +1,36 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 50px;
+  background-color: #f1a259;
+  width: 100%; 
+  white-space: nowrap; 
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-image img {
+  width: 150px;
+  height: auto;
+}
+
+.navbar-title {
+  font-size: 40px;
+  color: #FFFFFF;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+
+

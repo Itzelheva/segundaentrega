@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from "react";
-import { getProductById } from "../../asyncMock";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 
@@ -10,20 +10,30 @@ const ItemDetailContainer = () => {
   const { itemId } = useParams();
 
   useEffect(() => {
-    getProductById(itemId)
-      .then((response) => {
-        setProduct(response);
-      })
-      .catch((error) => {
+    const fetchProduct = async () => {
+      try {
+        const productRef = doc(db, "products", itemId);
+        const productSnapshot = await getDoc(productRef);
+        
+        if (productSnapshot.exists()) {
+          setProduct({ id: productSnapshot.id, ...productSnapshot.data() });
+        } else {
+          console.error("Product not found");
+        }
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+
+    fetchProduct();
   }, [itemId]);
 
   return (
     <div className="ItemDetailContainer">
-      <ItemDetail {...product} />
+      {product ? <ItemDetail {...product} /> : null}
     </div>
   );
 };
 
 export default ItemDetailContainer;
+
