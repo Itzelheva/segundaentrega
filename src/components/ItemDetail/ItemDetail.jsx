@@ -34,7 +34,7 @@ const ItemDetail = ({id, name, img, price, stock, category, description }) => {
           component="img"
           height="500"
           image={img}
-          alt="green iguana"
+          alt="products"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
